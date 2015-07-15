@@ -87,6 +87,7 @@ public class TirgulTester {
       //int mat [] = {-2,3,5,7,12};
       //System.out.println(tirgul.sum2(mat, 10));
       //System.out.println(tirgul.sum3(mat, 17));
+	    //General
     }
 
 
