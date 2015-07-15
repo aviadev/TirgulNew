@@ -1,7 +1,3 @@
-import com.sun.security.jgss.InquireSecContextPermission;
-
-import java.util.Stack;
-
 /**
  * Created by aviad on 10/07/2015.
  */
@@ -87,7 +83,7 @@ public class TirgulTester {
                       {80,81,90,95,100},
 
               };
-    //System.out.println(tirgul.shortestPath(mat));
+        System.out.println(tirgul.shortestPath(mat));
       //int mat [] = {-2,3,5,7,12};
       //System.out.println(tirgul.sum2(mat, 10));
       //System.out.println(tirgul.sum3(mat, 17));
