@@ -78,7 +78,7 @@ public class TirgulTester {
 
       s.toString();
       bint.g(root, s);*/
-/*      int mat[][] = new int[][]
+      int mat[][] = new int[][]
               {
                       {3,13,15,28,30},
                       {40,51,52,29,30},
@@ -87,7 +87,7 @@ public class TirgulTester {
                       {80,81,90,95,100},
 
               };
-    System.out.println(tirgul.shortestPath(mat));*/
+    //System.out.println(tirgul.shortestPath(mat));
       //int mat [] = {-2,3,5,7,12};
       //System.out.println(tirgul.sum2(mat, 10));
       //System.out.println(tirgul.sum3(mat, 17));
