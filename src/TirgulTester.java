@@ -1,11 +1,10 @@
-/**
- * Created by aviad on 10/07/2015.
- */
+import java.util.Stack;
+
 public class TirgulTester {
 
     public static void main (String args[]) {
         TirgulNew tirgul = new TirgulNew();
-      /*  String s1 = "TheExamIsEasy";
+  String s1 = "TheExamIsEasy";
         String s2 = "The*xamIs*y";
         String s3 = "Th*mIsEasy*";
         String s4 = "**";
@@ -15,19 +14,21 @@ public class TirgulTester {
 
 
 
-		*//*System.out.println(tirgul.samePattern(s1, s2));
+
+System.out.println(tirgul.samePattern(s1, s2));
 		System.out.println(tirgul.samePattern(s1, s3));
 		System.out.println(tirgul.samePattern(s1, s4));
 		System.out.println(tirgul.samePattern(s1, s5));
 		System.out.println(tirgul.samePattern(s1, s6));
-		System.out.println(tirgul.samePattern(s1, s7));*//*
+		System.out.println(tirgul.samePattern(s1, s7));
         int[] a = {1, 3};
         int[] res = {1, 4};
         int[] s = {4, 5};
         int[] ss1 = {4, 9, 3};
         System.out.println(tirgul.isSumOf(s, 13));
         System.out.println(tirgul.isSumOf(ss1, 15));
-        System.out.println(tirgul.fixedPoint(new int[]{-3, 0, 2, 4, 11, 12, 15}));*/
+        System.out.println(tirgul.fixedPoint(new int[]{-3, 0, 2, 4, 11, 12, 15}));
+
        // System.out.println(tirgul.split(new int [] {6,1,2,4} , 3));
       //System.out.println(tirgul.findDuplicated(new int [] {6,1,2,4, 2}));
       //tirgul.zeroDistance(new int [] {0,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1});
@@ -35,7 +36,7 @@ public class TirgulTester {
       //System.out.println(tirgul.f3(46789));
       //System.out.println(tirgul.f4(87654));
       //System.out.println(tirgul.something(5555));
-     /* B w1 = new B (2,3);
+ B w1 = new B (2,3);
       B w2 = new D (1.5,6);
       B w3 = new D (2.3,8,9);
       A w4 = new A (null,w1);
@@ -70,25 +71,44 @@ public class TirgulTester {
 
 
 
-      Stack s = new Stack();
+      Stack s11 = new Stack();
 
-      s.toString();
-      bint.g(root, s);*/
+      s11.toString();
+      bint.g(root, s11);
+
       int mat[][] = new int[][]
               {
                       {3,13,15,28,30},
                       {40,51,52,29,30},
                       {28,10,53,54,53},
                       {53,12,55,53,60},
+                      {70,62,56,20,80},
                       {80,81,90,95,100},
 
               };
-        System.out.println(tirgul.shortestPath(mat));
+      // System.out.println(tirgul.shortestPath(mat));
       //int mat [] = {-2,3,5,7,12};
       //System.out.println(tirgul.sum2(mat, 10));
       //System.out.println(tirgul.sum3(mat, 17));
 	    //General
+/*int mat2[][] = new int[][]
+                {
+                        {3,13,15,28,30},
+                        {50,51,52,29,30},
+                        {51,10,53,54,55},
+                        {53,12,14,53,11},
+                        //{80,81,90,95,100},
+
+                };
+        System.out.println(tirgul.longestWorm(mat2));*/
+        int [] arr = new int [] {2,15,3,4,2,5};
+        int [] arr2 = new int [] {1,1,3,7};
+
+      /*  System.out.println(tirgul.splitEqualMult(arr));
+        System.out.println(tirgul.splitEqualMult(arr2));*/
+        tirgul.printAllSum(arr2, 8);
     }
+
 
 
 

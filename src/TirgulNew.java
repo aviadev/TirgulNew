@@ -41,12 +41,14 @@ public class TirgulNew {
 
     public static boolean samePattern(String s1, String s2) {
 // base case
-        if (s1.length() == 0) {
+        if (s1.length() == 0)
+        {
             if (s2.length() == 0 || s2.equals("*"))
                 return true;
             else
                 return false;
-        } else if (s2.length() == 0)
+        }
+        else if (s2.length() == 0)
             return false;
 // rec calling
         if (s1.charAt(0) == s2.charAt(0))
@@ -235,7 +237,7 @@ public class TirgulNew {
             return true;
         if (n %10 <= (n / 10) %10)
             return false;
-        return f1(n/10);
+        return f1(n / 10);
     }
 
     public static boolean f2 (int n)
@@ -283,59 +285,68 @@ public class TirgulNew {
 
     public static int shortestPath(int[][] mat)
     {
-        int route = shortestPath(mat, 0, 0, 0);
-        if (route == Integer.MAX_VALUE)
-            return route;
-            else
-            return 0;
+        return shortestPath(mat, 0, 0, 0);
     }
 
-    public static int shortestPath (int [][] mat, int i, int j, int stepsCount)
+    public static int shortestPath (int [][] mat, int i, int j, int min)
     {
-        int M = mat[0].length;
-        int N = mat.length;
+        int stepsCount = 1;
+        int temp = mat[i][j];
 
-        if (mat.length == 1)
-            return 1;
+        stepsCount = checkBox (mat, i, j, stepsCount);
+        if (stepsCount < min)
+            min = stepsCount;
+        if ( i == mat[0].length-1 && j == mat.length-1)
+            return min;
 
-
-        if (i == M-1 && j == N-1)
-
+        if (i < mat[0].length-1 && mat[i][j] != -1)
         {
-            return stepsCount;
+            min = shortestPath(mat, i + 1, j, stepsCount);
+
+        }
+        if (j < mat.length-1 && mat[i][j] != -1)
+            min = shortestPath(mat, i, j + 1, stepsCount);
+        return min;
+    }
+
+    private static int checkBox(int[][] mat, int i, int j, int stepsCount)
+    {
+        int temp = mat[i][j];
+        if (i < mat[0].length-1 && mat[i][j] < mat [i+1][j])
+        {
+
+            mat[i][j] = -1;
+            stepsCount = shortestPath(mat, i + 1, j, stepsCount + 1);
+            mat[i][j] = temp;
+        }
+        else if (j < mat.length-1 && mat [i][j] < mat[i][j+1])
+        {
+
+            mat[i][j] = -1;
+            stepsCount = shortestPath(mat, i, j + 1, stepsCount + 1);
+            mat[i][j] = temp;
+
+        }
+        else if (i > 0 && mat[i][j] < mat[i-1][j])
+        {
+
+            mat[i][j] = -1;
+            stepsCount = shortestPath(mat, i-1, j, stepsCount +1);
+            mat[i][j] = temp;
         }
 
-        int up = Integer.MAX_VALUE;
-        if(j-1 >= 0 && mat[i][j-1] > mat[i][j])
+        else if (j > 0 && mat[i][j] < mat[i][j-1])
         {
-            up = shortestPath(mat,i,j-1, stepsCount + 1);
-        }
-        int down = Integer.MAX_VALUE;
-        if(j+1 < N  && mat[i][j+1] > mat[i][j])
-        {
-            down = shortestPath(mat,i,j+1, stepsCount + 1);
-        }
-        int left = Integer.MAX_VALUE;
-        if(i-1 >= 0 && mat[i-1][j] > mat[i][j])
-        {
-            left = shortestPath(mat,i-1,j, stepsCount + 1);
-        }
-        int right = Integer.MAX_VALUE;
-        if(i+1 < M && mat[i+1][j] > mat[i][j])
-        {
-            up = shortestPath(mat,i+1,j-1, stepsCount + 1);
+
+            mat[i][j] = -1;
+            stepsCount = shortestPath(mat, i, j - 1, stepsCount + 1);
+            mat[i][j] = temp;
         }
 
-        if (up <= down && down <= left && left <= down)
-        {
-            return up;
-        }
-        if (down <= left && down <= up && down <= right)
-            return down;
-        if (left <= right && left <= up && left <= down)
-            return left;
-        else
-            return right;
+
+        return stepsCount;
+
+
     }
 
 
@@ -381,5 +392,107 @@ public class TirgulNew {
         return res;
     }
 
+
+    //q1
+    public static int longestWorm(int[][] mat)
+    {
+        return longestWorm (mat,0,0, 0);
+    }
+    private static int longestWorm(int[][] mat, int x, int y, int max)
+    {
+        int count = 1;
+        count = checkComb(mat, x, y, count);
+        if(max < count)
+            max = count;
+        if(y < mat[0].length-1)
+            max = longestWorm(mat, x, y+1, max);
+        if(x < mat.length-1)
+            max = longestWorm(mat, x+1, y, max);
+        return max;
+    }
+    private static int checkComb(int[][] mat,int x,int y, int count)
+    {
+        if (y < mat[0].length - 1 && (mat[x][y] + 1) == mat[x][y+1])
+            count = checkComb (mat, x, y+1, count+1);
+        else if (x<mat.length-1 && (mat[x][y]+1)== mat[x+1][y])
+            count = checkComb (mat, x+1, y, count+1);
+        else if (y > 0 && (mat[x][y]+1)== mat[x][y-1])
+            count = checkComb (mat, x, y-1, count+1);
+        else if (x > 0 && (mat[x][y]+1)== mat[x-1][y])
+            count = checkComb(mat, x-1, y, count+1);
+        return count;
+    }
+
+    public static boolean splitEqualMult (int [] a)
+    {
+        return splitEqualMulty(a, 0, 1, 1);
+    }
+
+    private static boolean splitEqualMulty (int []a, int i, int sum1, int sum2)
+    {
+        if (a.length == 1) return false;
+        if (a.length == 2) return a[0] == a[1];
+        if (sum1  == sum2) return true;
+
+        if (i > a.length-1) return false;
+        return splitEqualMulty(a, i+1, a[i]*sum1, sum2) || splitEqualMulty(a,i+1, sum1, a[i]*sum2);
+        //splitEqualMulty(a, i+1, a[i]+sum1, sum2) || splitEqualMulty(a,i+1, sum1, a[i]*sum2);
+
+
+    }
+
+    private static int calculate (int []a, int i, int mid, int sum)
+    {
+        if (a.length == 1 ) return a[0];
+        else if (i < mid)
+        sum =  calculate(a,i+1, mid, a[i] * sum );
+        return sum;
+    }
+
+
+    public  static void PrintAll (int []a, int sum)
+    {
+        PrintAll(a, 0, 0, 0, " ");
+    }
+
+
+    private static void PrintAll (int []a, int num, int sum, int i, String s)
+    {
+        if (a.length < 2) return;
+        if (i >= a.length -1 || num > sum) return;
+        if (num == sum)
+            s += "1";
+        if (num != sum)
+            s += "0";
+        if (s. length() == a.length)
+            System.out.print (s);
+
+        PrintAll(a, num + a[i], sum, i + 1, s);
+    }
+
+    public static void printAllSum(int[] a, int sum)
+    {
+        printAllSum(a, sum, 0, "");
+    }
+    private static void printAllSum(int[] a, int sum, int i, String s)
+    {
+        if (i >= a.length -1 ) return;
+        if(sum==0 && s.length()==i)
+        {
+            System.out.println(s);
+            return;
+        }
+        String stringWithZero = s;
+        if(a[i] <=sum)
+        {
+            s+= "1";
+            printAllSum(a, sum-a[i], i+1, s);
+        }
+        stringWithZero += "0";
+        printAllSum(a,sum,i+1,stringWithZero);
+    }
+
+    //end q1
 }
+
 
