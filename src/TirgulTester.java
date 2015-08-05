@@ -4,7 +4,7 @@ public class TirgulTester {
 
     public static void main (String args[]) {
         TirgulNew tirgul = new TirgulNew();
-  String s1 = "TheExamIsEasy";
+ /* String s1 = "TheExamIsEasy";
         String s2 = "The*xamIs*y";
         String s3 = "Th*mIsEasy*";
         String s4 = "**";
@@ -91,7 +91,7 @@ System.out.println(tirgul.samePattern(s1, s2));
       //System.out.println(tirgul.sum2(mat, 10));
       //System.out.println(tirgul.sum3(mat, 17));
 	    //General
-/*int mat2[][] = new int[][]
+*//*int mat2[][] = new int[][]
                 {
                         {3,13,15,28,30},
                         {50,51,52,29,30},
@@ -100,13 +100,53 @@ System.out.println(tirgul.samePattern(s1, s2));
                         //{80,81,90,95,100},
 
                 };
-        System.out.println(tirgul.longestWorm(mat2));*/
-        int [] arr = new int [] {2,15,3,4,2,5};
+        System.out.println(tirgul.longestWorm(mat2));*//*
+       // int [] arr = new int [] {2,15,3,4,2,5};
         int [] arr2 = new int [] {1,1,3,7};
+        int [] arr3 = new int [] {-7,-3,0,1,3,5,12,14,17,19,25,30};
 
-      /*  System.out.println(tirgul.splitEqualMult(arr));
-        System.out.println(tirgul.splitEqualMult(arr2));*/
-        tirgul.printAllSum(arr2, 8);
+      *//*  System.out.println(tirgul.splitEqualMult(arr));
+        System.out.println(tirgul.splitEqualMult(arr2));*//*
+       // tirgul.printAllSum(arr2, 8);
+       // tirgul.printPairs(arr3, 6);*/
+       /* Base [] arr = new Base[5];
+        arr[0] = new Derived1(12,20);
+        arr[1] = new Derived2(33,44);
+        arr[2] = new Derived3(34,10);
+        arr[3] = new Derived1(51,72);
+        arr[4] = new Derived2(58,99);
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.println("i = " +i);
+            arr[i].run();
+        }*/
+
+        AA [] arr = new AA[4];
+        arr[0] = new AA();
+        arr[1] = new AA(1);
+        arr[2] = new BB();
+        arr[3] = new BB(1,2);
+
+        BB [] arr1 = new BB [2];
+        arr1[0] = new BB();
+        arr1[1] = new BB(1,2);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(i + "\t" +arr[i]);
+        }
+
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.println(i + "\t" +arr1[i]);
+        }
+
+        System.out.println(arr[0].equals(arr[1]));
+        System.out.println(arr[2].equals(arr[3]));
+        System.out.println(arr1[0].equals(arr1[1]));
+        System.out.println(arr1[0].equals(arr[0]));
+        System.out.println(arr[0].equals(arr1[0]));
+        System.out.println(arr1[1].equals(arr[0]));
+        System.out.println(arr[0].equals(arr1[1]));
     }
 
 

@@ -492,6 +492,33 @@ public class TirgulNew {
         printAllSum(a,sum,i+1,stringWithZero);
     }
 
+    public static void printPairs (int []a, int k)
+    {
+        if (a.length < 2)
+            return;
+
+        for (int i = 0, j = 1; i < a.length && j < a.length;)
+        {
+           if (a[j] - a[i] == k)
+           {
+               System.out.println("Pair Found: (" + a[i] + "," +a[j] + ")");
+               i++;
+               j++;
+
+           }
+           else if (a[j] - a[i] > k)
+            {
+                i++;
+            }
+            else  if (a[j] - a[i] < k)
+            {
+                j++;
+            }
+
+        }
+
+    }
+
     //end q1
 }
 
