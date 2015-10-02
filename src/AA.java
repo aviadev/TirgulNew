@@ -1,7 +1,7 @@
 /**
  * Created by aviad on 05/08/2015.
  */
-public class AA
+public abstract class AA
 {
     private int _x;
 
@@ -16,4 +16,6 @@ public class AA
     {
         return "x = " +getX();
     }
+
+    public abstract boolean f(int x) ;
 }

@@ -1,7 +1,7 @@
 /**
  * Created by aviad on 05/08/2015.
  */
-public class BB extends AA
+public abstract class BB extends AA
 {
     private int _y;
 
@@ -31,4 +31,6 @@ public class BB extends AA
     {
         return "x = " +getX() + " y = " + getY();
     }
+
+
 }

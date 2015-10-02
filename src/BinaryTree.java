@@ -22,4 +22,16 @@ public class BinaryTree {
             }
         }
     }
+
+    public static Node secret (Node root, Node p, Node q)
+    {
+        if (root == null) return null;
+        if (root == p || root == q) return root;
+        Node left = secret(root.get_leftSon(), p, q);
+        Node right = secret(root.get_rightSon(), p, q);
+
+        if (left != null && right != null) return root;
+        if (left != null && right == null) return left;
+        return right;
+    }
 }
